@@ -1,0 +1,11 @@
+-- 04_bronze_silver_gold_comparison.sql
+-- Side-by-side comparison query across the three medallion layers
+-- (useful for the workshop demo to show data quality/shape improving
+-- as it moves Bronze -> Silver -> Gold).
+-- TODO: fill in real table names per layer.
+
+-- SELECT 'bronze' AS layer, COUNT(*) AS row_count FROM <db>.<bronze_table>
+-- UNION ALL
+-- SELECT 'silver' AS layer, COUNT(*) AS row_count FROM <db>.<silver_table>
+-- UNION ALL
+-- SELECT 'gold' AS layer, COUNT(*) AS row_count FROM <db>.<gold_table>;
