@@ -9,59 +9,58 @@ building a real Apache Iceberg pipeline on AWS.
 
 ## 📚 Series Index
 
-| Part | Title | Type | Link |
-|---|---|---|---|
-| Part 1 | Data Lake ki Kahani: Kyun aur Kaise Shuru Hua | Concept (no code) | _AWS Builder link — TBD_ |
-| Part 2 | Table Formats ka Concept: Hive ke Drawbacks aur Iceberg ka Janam | Concept + standalone demo | _AWS Builder link — TBD_ |
-| Part 3 | AWS mein Data Lake Architecture: Ingestion se Catalog tak | Hands-on (Glue) | _AWS Builder link — TBD_ |
-| Part 4 | Querying, Iceberg on AWS, aur Real Pipeline | Hands-on (Athena) | _AWS Builder link — TBD_ |
-| Workshop | Full end-to-end hands-on build | Hands-on | [`workshop-hands-on/`](./workshop-hands-on) |
-
-**Overview article (Medium):** _TBD — links out to all of the above_
-**Videos (YouTube):** _TBD — Concept/Intro video, Hands-on build video_
+| Part | Title | Type | Code in this repo | AWS Builder |
+|---|---|---|---|---|
+| Part 1 | From Data Warehouse to Data Lake: Why Modern Analytics Architecture Looks the Way It Does | Concept only | _Not applicable — no code_ | _Link TBD_ |
+| Part 2 | Table Formats and the Rise of Apache Iceberg | Concept + standalone PyIceberg demo | [`part2-iceberg-concepts/`](./part2-iceberg-concepts) | _Link TBD_ |
+| Part 3 | Data Lake Architecture on AWS: From Ingestion to Catalog | Hands-on (Terraform + Glue) | _Coming soon_ | _Link TBD_ |
+| Part 4 | Querying, Iceberg on AWS, and the Real Pipeline | Hands-on (Athena) | _Coming soon_ | _Link TBD_ |
+| Workshop | Full end-to-end hands-on build | Hands-on | _Coming soon_ | — |
 
 ---
 
-## 🗂 Repository Structure
+## 🗂 Repository Structure (current)
 
 ```
 datalake-iceberg-aws-series/
-├── architecture-diagrams/     → Diagrams reused across all platforms
-├── part1-datalake-basics/     → Concept notes (no code)
-├── part2-iceberg-concepts/    → Iceberg concepts + standalone PyIceberg demo
-├── part3-ingestion-glue/      → Terraform infra + Glue ETL jobs
-├── part4-athena-querying/     → Athena SQL + Lake Formation notes
-├── workshop-hands-on/         → Full end-to-end pipeline (Docker, EC2, scripts, cleanup)
-└── sample-datasets/           → Seed data for MySQL/Postgres + unstructured samples
+└── part2-iceberg-concepts/
+    └── iceberg-demo/     → Standalone PyIceberg scripts (no AWS needed)
 ```
 
----
+This repo is code-only — article write-ups (AWS Builder, Medium) are
+drafted separately and published on those platforms directly.
 
-## ✅ Prerequisites
-
-- AWS account with sufficient permissions (Glue, S3, EC2, Athena, Lake Formation, IAM)
-- [Terraform](https://developer.hashicorp.com/terraform/downloads) installed
-- [Docker](https://docs.docker.com/get-docker/) + Docker Compose
-- AWS CLI configured (`aws configure`)
-- Basic SQL + Python familiarity
-
-No other tools are required — infra is kept deliberately minimal.
+More folders (`part3-ingestion-glue/`, `part4-athena-querying/`,
+`workshop-hands-on/`, etc.) will be added here as those parts are built —
+see the Series Index above for what's planned.
 
 ---
 
-## 🚀 Quick Start (Workshop)
+## ✅ Prerequisites (for what's in this repo right now)
+
+- Python 3.9+ and `pip`
+
+That's all Part 2's standalone demo needs — see
+[`part2-iceberg-concepts/iceberg-demo/README.md`](./part2-iceberg-concepts/iceberg-demo/README.md)
+for setup. An AWS account, Terraform, and Docker will only be needed once
+Part 3's infra lands here.
+
+---
+
+## 🚀 Quick Start (Part 2 — standalone Iceberg demo)
 
 ```bash
-cd workshop-hands-on
-cat setup/prerequisites.md
+cd part2-iceberg-concepts/iceberg-demo
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+python 01_create_table.py
+python 02_schema_evolution.py
+python 03_time_travel.py
 ```
 
-Then follow the workshop guide end to end. Full pipeline:
-
-```
-MySQL/Postgres (EC2, Docker) → Glue (JDBC) → S3 (Bronze)
-   → Glue ETL → S3 (Silver/Gold, Iceberg) → Athena query
-```
+No AWS account or cloud cost involved — everything runs against a local
+SQLite-backed Iceberg catalog on disk.
 
 ---
 
@@ -72,11 +71,6 @@ MySQL/Postgres (EC2, Docker) → Glue (JDBC) → S3 (Bronze)
 - **YouTube description** → this repo + AWS Builder articles
 
 ---
-
-## 🧹 Cleanup
-
-Everything is provisioned via Terraform for easy teardown — see
-[`workshop-hands-on/cleanup/teardown_resources.md`](./workshop-hands-on/cleanup/teardown_resources.md).
 
 ## 📄 License
 

@@ -24,6 +24,9 @@ venv/
 env/
 .ipynb_checkpoints/
 
+# --- PyIceberg local demo (generated at runtime) ---
+part2-iceberg-concepts/iceberg-demo/warehouse/
+
 # --- AWS ---
 .aws-sam/
 *.pem
