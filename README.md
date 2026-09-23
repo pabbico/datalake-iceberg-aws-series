@@ -38,12 +38,12 @@ see the Series Index above for what's planned.
 
 ## ✅ Prerequisites (for what's in this repo right now)
 
-- Python 3.9+ and `pip`
+- Python **3.10–3.13** and `pip` (avoid a brand-new release like 3.14 as
+  your default `python3` — see the troubleshooting note in
+  [`part2-iceberg-concepts/iceberg-demo/README.md`](./part2-iceberg-concepts/iceberg-demo/README.md))
 
-That's all Part 2's standalone demo needs — see
-[`part2-iceberg-concepts/iceberg-demo/README.md`](./part2-iceberg-concepts/iceberg-demo/README.md)
-for setup. An AWS account, Terraform, and Docker will only be needed once
-Part 3's infra lands here.
+That's all Part 2's standalone demo needs. An AWS account, Terraform, and
+Docker will only be needed once Part 3's infra lands here.
 
 ---
 
@@ -51,7 +51,7 @@ Part 3's infra lands here.
 
 ```bash
 cd part2-iceberg-concepts/iceberg-demo
-python3 -m venv .venv && source .venv/bin/activate
+python3.12 -m venv .venv && source .venv/bin/activate   # any 3.10-3.13 interpreter works
 pip install -r requirements.txt
 
 python 01_create_table.py

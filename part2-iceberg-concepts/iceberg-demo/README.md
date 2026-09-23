@@ -11,12 +11,25 @@ filesystem, so there's zero cloud cost to try this.
 
 ## Setup (plain Python venv — no Docker needed for this one)
 
+Use **Python 3.10–3.13**. Avoid a brand-new Python release (e.g. 3.14) as
+your default `python3` — `pyarrow` is a heavy C++ extension, and its
+prebuilt wheels typically lag a new Python release by a few months. On an
+unsupported version, `pip install` tries to compile `pyarrow` from source
+and fails with a `cmake` error, which this demo doesn't need you to deal
+with. Run `python3 --version` first; if it's not 3.10–3.13, point the venv
+at a specific version instead (e.g. `python3.12`, installed via
+`brew install python@3.12` on macOS, or from python.org).
+
 ```bash
 cd part2-iceberg-concepts/iceberg-demo
-python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python3.12 -m venv .venv        # use whichever 3.10-3.13 interpreter you have
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+**If `pip install` fails trying to build `pyarrow` from source** (a
+`cmake` error is the telltale sign): your default `python3` is too new.
+Recreate the venv with an explicit 3.10–3.13 interpreter as shown above.
 
 ## Scripts (run in order)
 
