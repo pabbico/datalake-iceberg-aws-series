@@ -12,7 +12,7 @@ building a real Apache Iceberg pipeline on AWS.
 | Part | Title | Type | Code in this repo | AWS Builder |
 |---|---|---|---|---|
 | Part 1 | From Data Warehouse to Data Lake: Why Modern Analytics Architecture Looks the Way It Does | Concept only | _Not applicable — no code_ | [Read on AWS Builder](https://builder.aws.com/content/3JQ4D7ZscQWUNox9VJJuk6hdvk1/from-data-warehouse-to-data-lake-why-modern-analytics-architecture-looks-the-way-it-does) |
-| Part 2 | Table Formats and the Rise of Apache Iceberg | Concept + standalone PyIceberg demo | [`part2-iceberg-concepts/`](./part2-iceberg-concepts) | _Link TBD_ |
+| Part 2 | Table Formats and the Rise of Apache Iceberg | Concept + standalone PyIceberg demo | [`part2-iceberg-concepts/`](./part2-iceberg-concepts) | [Read on AWS Builder](https://builder.aws.com/content/3JSp1vo1QKri3f8NdQ8QNYac3y4/table-formats-and-the-rise-of-apache-iceberg) |
 | Part 3 | Data Lake Architecture on AWS: From Ingestion to Catalog | Hands-on (Terraform + Glue) | _Coming soon_ | _Link TBD_ |
 | Part 4 | Querying, Iceberg on AWS, and the Real Pipeline | Hands-on (Athena) | _Coming soon_ | _Link TBD_ |
 | Workshop | Full end-to-end hands-on build | Hands-on | _Coming soon_ | — |
