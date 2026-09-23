@@ -64,14 +64,6 @@ SQLite-backed Iceberg catalog on disk.
 
 ---
 
-## 🔗 Cross-links
-
-- **AWS Builder articles** → this repo (relevant code sections) + YouTube hands-on video
-- **Medium overview** → AWS Builder articles + this repo + YouTube
-- **YouTube description** → this repo + AWS Builder articles
-
----
-
 ## 📄 License
 
 See [LICENSE](./LICENSE).
